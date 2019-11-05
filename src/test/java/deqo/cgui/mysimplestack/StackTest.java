@@ -23,7 +23,7 @@ public class StackTest {
     @Test
     public void isEmpty() {
         assertTrue(this.stack.isEmpty());
-        this.stack.push(new Item());
+        this.stack.push(new Item<Integer>("", 0));
         assertFalse(this.stack.isEmpty());
         this.stack.pop();
         assertTrue(this.stack.isEmpty());
@@ -32,7 +32,7 @@ public class StackTest {
     @Test
     public void getSize() {
         assertEquals(0, this.stack.getSize());
-        this.stack.push(new Item());
+        this.stack.push(new Item<Integer>("", 0));
         assertNotEquals(0, this.stack.getSize());
         this.stack.pop();
         assertEquals(0, this.stack.getSize());
@@ -41,16 +41,18 @@ public class StackTest {
     @Test
     public void push() {
         assertTrue(this.stack.isEmpty());
-        this.stack.push(new Item());
+        this.stack.push(new Item<Integer>("", 0));
         assertFalse(this.stack.isEmpty());
     }
 
     @Test
     public void peek() {
-        Item item = new Item();
+        Item<Integer> item = new Item<Integer>("", 0);
+        System.out.println(item);
         this.stack.push(item);
         assertEquals(item, this.stack.peek());
-        assertNotEquals(new Item(1), this.stack.peek());
+        assertNotEquals(new Item<Integer>("", 1), this.stack.peek());
+        assertNotEquals(new Item<Integer>("test", 0), this.stack.peek());
         this.stack.pop();
         exception.expect(EmptyStackException.class);
         this.stack.peek();
@@ -58,7 +60,7 @@ public class StackTest {
 
     @Test
     public void pop() {
-        this.stack.push(new Item());
+        this.stack.push(new Item<Integer>("", 0));
         assertFalse(this.stack.isEmpty());
         this.stack.pop();
         assertTrue(this.stack.isEmpty());

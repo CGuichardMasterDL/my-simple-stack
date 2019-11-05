@@ -1,25 +1,10 @@
 package deqo.cgui.mysimplestack;
 
-public class Item {
+public class Item<N> {
     private String name;
-    private int value;
+    private N value;
 
-    public Item() {
-        this.name = "";
-        this.value = 0;
-    }
-
-    public Item(String name) {
-        this.name = name;
-        this.value = 0;
-    }
-
-    public Item(int value) {
-        this.name = "";
-        this.value = value;
-    }
-
-    public Item(String name, int value) {
+    public Item(String name, N value) {
         this.name = name;
         this.value = value;
     }
@@ -32,25 +17,18 @@ public class Item {
         this.name = name;
     }
 
-    public int getValue() {
+    public N getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(N value) {
         this.value = value;
-    }
-
-    public void increaseValue(int val) {
-        this.value += val;
-    }
-
-    public void decreaseValue(int val) {
-        this.value -= val;
     }
 
     @Override
     public boolean equals(Object o) {
-        return o != null && this.name.equals(((Item)o).name) && this.value == ((Item)o).value;
+        return this.name.equals(((Item<N>)o).getName())
+        && this.value.equals(((Item<N>)o).getValue());
     }
 
     @Override

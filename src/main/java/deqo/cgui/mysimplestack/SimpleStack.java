@@ -15,14 +15,14 @@ public interface SimpleStack {
      * Pushes an item onto the top of this stack.
      * null item is allowed.
      */
-    public void push(Item item);
+    public void push(Item<Integer> item);
     /**
      * Looks at the object at the top of this stack without removing it from the stack.
      */
-    public Item peek() throws EmptyStackException;
+    public Item<Integer> peek() throws EmptyStackException;
     /**
      * Removes the object at the top of this stack and returns that object as the value of this function.
      * ​ @throws​ EmptyStackException if this stack is empty.
      */
-    public Item pop() throws EmptyStackException;
+    public Item<Integer> pop() throws EmptyStackException;
 }

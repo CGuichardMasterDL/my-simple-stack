@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 public class Stack implements SimpleStack {
-    private ArrayList<Item> items;
+    private ArrayList<Item<Integer>> items;
 
     public Stack() {
-        this.items = new ArrayList<Item>();
+        this.items = new ArrayList<Item<Integer>>();
     }
 
     @Override
@@ -21,19 +21,19 @@ public class Stack implements SimpleStack {
     }
 
     @Override
-    public void push(Item item) {
+    public void push(Item<Integer> item) {
         this.items.add(item);
     }
 
     @Override
-    public Item peek() throws EmptyStackException {
+    public Item<Integer> peek() throws EmptyStackException {
         if (this.isEmpty())
             throw new EmptyStackException();
         return this.items.get(0);
     }
 
     @Override
-    public Item pop() throws EmptyStackException {
+    public Item<Integer> pop() throws EmptyStackException {
         if (this.isEmpty())
             throw new EmptyStackException();
         return this.items.remove(0);
