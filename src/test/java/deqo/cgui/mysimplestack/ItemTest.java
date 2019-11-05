@@ -6,9 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ItemTest {
-    Item item;
-    String name;
-    int value;
+    private Item item;
+    private String name;
+    private int value;
 
     @Before
     public void setUp() throws Exception {

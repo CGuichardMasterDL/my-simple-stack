@@ -50,7 +50,7 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        return this.name.equals(((Item)o).name) && this.value == ((Item)o).value;
+        return o != null && this.name.equals(((Item)o).name) && this.value == ((Item)o).value;
     }
 
     @Override
