@@ -12,6 +12,9 @@ public interface SimpleStack {
      */
     public int getSize();
     /**
+     * Returns the maximal number of items stocked in the simple stack     */
+    public int getLimit();
+    /**
      * Pushes an item onto the top of this stack.
      * null item is allowed.
      */
