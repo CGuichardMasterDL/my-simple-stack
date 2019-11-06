@@ -39,10 +39,25 @@ public class StackTest {
     }
 
     @Test
+    public void getLimit() {
+        assertEquals(-1, this.stack.getLimit());
+        int n = 20;
+        Stack s = new Stack(n);
+        assertEquals(n, s.getLimit());
+    }
+
+    @Test
     public void push() {
         assertTrue(this.stack.isEmpty());
         this.stack.push(new Item<Integer>("", 0));
         assertFalse(this.stack.isEmpty());
+
+        int n = 10;
+        Stack s = new Stack(n);
+        for (int i = 0; i < n; ++i)
+            s.push(new Item<Integer>("", 0));
+        exception.expect(StackOverflowError.class);
+        s.push(new Item<Integer>("", 0));
     }
 
     @Test
